@@ -38,9 +38,10 @@ gem 'simple_form'
 gem "breadcrumbs_on_rails"
 #上传文件
 gem 'carrierwave'
-
+gem 'slim'
 gem 'simple_form'
 gem 'seed-fu', :github => 'mbleigh/seed-fu'
+gem 'simple-navigation'
 #搜索
 gem 'ransack'
 gem 'bootstrap-sass', '~> 3.3.5.1'
