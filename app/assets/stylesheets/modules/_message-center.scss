@@ -1,0 +1,57 @@
+@import "compass/css3";
+.message-center {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  visibility: hidden;
+  @include transform(translateY(-100%));
+  @include transition(transform 0.5s);
+
+  &.show {
+    visibility: visible;
+    @include translateY(0);
+  }
+
+  .drop-message {
+    padding: 5px 15px;
+    margin: 5px 0;
+    border: 1px solid $info-color;
+    background-color: #e2f4ff;
+    color: $info-color;
+    border-radius: 4px;
+    text-align: center;
+    position: relative;
+    box-shadow: 1px 1px 30px 0 #666;
+    &.danger {
+      border-color: $red;
+      background-color: $red-light;
+      color: $red;
+    }
+    &.success {
+      border-color: $green;
+      background-color: $green-light;
+      color: $green;
+    }
+    &.warning {
+      border-color: $warning-color;
+      background-color: #fdf3e3;
+      color: $warning-color;
+    }
+
+
+    .message-content {
+      padding-right: 30px;
+      font-weight: bold;
+    }
+    .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 21px;
+      padding: 3px 15px 4px;
+      text-align: center;
+    }
+  }
+}

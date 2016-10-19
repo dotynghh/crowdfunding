@@ -1,0 +1,48 @@
+//utils
+@include generate-margin-padding-util;
+@include generate-font-sizes;
+.no-bg {
+  background: none;
+}
+
+.v-top {
+  vertical-align: top !important;
+}
+.v-middle {
+  vertical-align: middle !important;
+}
+.v-bottom {
+  vertical-align: bottom !important;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+//border
+.border-top-b-3{
+	border-top:3px solid $blue;
+}
+
+.clearfix{
+	@include clearfix;
+}
+
+.visibility{
+	visibility:hidden;
+}
+.invisible {
+  @include opacity(0);
+}
+.absolute{
+	position: absolute;
+}
+
+.dashed-line{
+	border-bottom: 1px #ccc dashed;
+	width: 100%;
+	margin: 15px 0;
+}
+.color-green{
+	color: #00a65a;
+}

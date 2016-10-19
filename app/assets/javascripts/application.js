@@ -13,4 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap
+
+//= require AdminLTE
+
+//= require lib/util
+//= require lib/Page
+//= require_tree ./application
+
+//= require_self
+
+//= require jquery
+//= require bootstrap-sprockets
+
+

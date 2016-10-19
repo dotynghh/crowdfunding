@@ -1,0 +1,52 @@
+.table-wrapper{
+  background-color: #fff;
+}
+//override bootstartp
+//基础table style
+.table {
+  margin-bottom: 0;
+  tr{
+    height: 40px;
+  }
+  thead {
+    &.with-bg {
+      background-color: #f8f8f8;
+    }
+    tr:first-child{
+      background: #f0f3f5;
+      color: #8fa2b1;
+    }
+    th {
+      font-weight: normal;
+      white-space: nowrap;
+      color: #787878;
+    }
+  }
+
+  .table-actions {
+    a {
+      white-space: nowrap;
+    }
+    a, .btn, .button_to {
+      margin-right: 8px;
+    }
+  }
+}
+
+//override bootstartp
+.table.table-bordered {
+  thead > tr > th,
+  tbody > tr > td {
+    border: 1px solid $grey;
+  }
+  thead:first-child > tr:first-child > th {
+    border-top: 1px solid $grey;
+  }
+}
+
+//util function
+.table.v-middle{
+  td, th {
+    vertical-align: middle;
+  }
+}

@@ -1,0 +1,189 @@
+//global
+//大集合,根据内容再整理
+
+
+// form
+.button_to {
+  display: inline;
+}
+.actions{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @include clearfix;
+
+  &.with-border {
+    border-bottom: 1px solid $border-color-grey;
+    margin-bottom: 40px;
+  }
+
+  .button_to,.btn{
+    margin-left: 20px;
+    min-width: 80px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  span.text{
+    height: 34px;
+    line-height: 34px;
+    display: inline-block;
+    font-size: 16px;
+  }
+}
+
+
+
+.form-group {
+  .fixed-label {
+    float: left;
+    width: 100px;
+    text-align: right;
+    padding-left: 15px;
+  }
+  .control-part {
+    margin-left: 100px;
+    min-height: 30px;
+    padding: 0 15px;
+    .radio, .checkbox {
+      display: inline-block;
+      margin-right: 15px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .fixed-label {
+      float: none;
+      width: auto;
+      text-align: left;
+    }
+    .control-part {
+      margin-left: 0;
+    }
+  }
+}
+
+
+//have-validate
+.have-validate{
+	margin-bottom: 30px;
+}
+input.error{
+	border-color: $danger-color;
+}
+label.error{
+	position: absolute;
+	margin-top: 5px;
+	font-weight: normal;
+	color: $danger-color;
+}
+
+.validate-form {
+  .form-group {
+    min-height: 65px;
+    margin-bottom: 5px;
+  }
+}
+
+.chosen-select.required-select {
+  display: block !important;
+  visibility: hidden;
+  position: absolute;
+}
+
+// thumbnail
+.img-wrapper {
+  display: inline-block;
+  position: relative;
+  float: left;
+  margin: 0 10px 10px 0;
+  width: 94px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 0;
+  text-align: center;
+  border: 1px solid $border-color-grey;
+  img  {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: image_url('cursors/zoom-out.cur'), auto;
+  }
+}
+
+// 评分
+.grade {
+  display: inline-block;
+  width: 19 * 5px;
+  height: 16px;
+  background: image_url("crown.png") repeat-x left top;
+  b {
+    display: block;
+    height: 16px;
+    background: image_url("crown-active.png") repeat-x left top;
+  }
+}
+
+// 搜索结果为空
+.search-empty {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  .alert-message {
+    display: inline-block;
+    width: 460px;
+    max-width: 100%;
+  }
+}
+
+// datetime picker override
+.bootstrap-datetimepicker-widget.dropdown-menu {
+  border-color: $border-color-grey;
+}
+.bootstrap-datetimepicker-widget table {
+  width: 100%;
+  margin: 0;
+}
+
+//turbolinks progress bar
+.turbolinks-progress-bar {
+  background-color: $info-color;
+  z-index: $z-top;
+  height: 4px;
+}
+
+//override bootstrap
+.label{
+  font-weight: normal;
+}
+
+// level icons
+[class*='level-'] {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  text-align: center;
+  &:before {
+    color: white;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+.level-1 {
+  background-color: $orange-dark;
+  &:before {
+    content: '1';
+  }
+}
+.level-2 {
+  background-color: $orange;
+  &:before {
+    content: '2';
+  }
+}
+.level-3 {
+  background-color: $orange-light;
+  &:before {
+    content: '3';
+  }
+}

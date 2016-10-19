@@ -1,0 +1,158 @@
+//layout
+body {
+  font-family: $font-family-sans-serif;
+  background:#eceef2;
+}
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+//override select style
+select.form-control{
+  border-radius: 0;
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  background: image_url('arrow.png') no-repeat scroll right center #fff;
+  padding-right: 31px;
+}
+select::-ms-expand { display: none; }
+
+
+/*
+ * wrap container
+ */
+.paper {
+  padding: 30px 15px;
+  background-color: white;
+  border: 1px solid $border-color-grey;
+
+  .paper-header {
+    padding: 16px 15px;
+    min-height: 52px;
+    margin: -30px -15px 20px;
+    border-bottom: 1px solid $border-color-grey;
+  }
+
+  .actions:first-child {
+    padding-top: 0;
+  }
+
+  > .single-form-wrap {
+    margin-left: 0;
+    margin-right: 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.nav-tabs + .paper ,.search-wrapper + .paper{
+  border-top: none;
+}
+
+.limited-container{
+  max-width: 940px;
+}
+
+.form-container640{
+  padding: 20px 15px;
+  max-width: 640px;
+}
+
+.single-form-wrap{
+  border:1px solid #e4e4e4;
+  margin: 10px 15px 0;
+  .title{
+    height: 40px;
+    line-height: 40px;
+    padding:0 15px;
+    border-bottom: 1px solid #e4e4e4;
+  }
+  ul{
+    display: inline-block;
+    //margin-left: 15px;
+    line-height: 30px;
+    //width: 45%;
+    .key,.value{
+      display: inline-block;
+    }
+    .key{
+      color: #787878;
+      width: 100px;
+      margin-right: 10px;
+      text-align: right;
+    }
+  }
+  ul.border{
+    margin-left: 0;
+    color: #787878;
+    padding-bottom: 10px;
+    li{
+      padding:0 15px;
+    }
+    li:first-child{
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e4e4e4;
+    }
+    span.pull-right{
+      color: #333;
+    }
+  }
+}
+.single-form-wrap.w-960{
+  max-width: 960px;
+}
+
+.main-container{
+  //padding-bottom: 15px;
+  border: 1px #e4e4e4 solid;
+  //border-top:3px solid $blue;
+}
+
+.show-section {
+  .section-title {
+    padding: 16px 0;
+    h1, h2, h3 {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+
+.btn-container{
+	padding: 15px 15px 0;
+  border-bottom: 1px solid #e4e4e4;
+  @include clearfix;
+	select,input,.btn,label{
+    margin-right: 10px;
+  }
+  label{
+    font-weight: normal;
+  }
+  .btn-group .btn{
+    margin-right: 0
+  }
+}
+
+//tiny layout
+.tiny-layout {
+  header {
+    background-color: #3c8dbc;
+    height: 78px;
+    .logo {
+      margin: 0;
+      font-size: 30px;
+    }
+    a {
+      color: white;
+      font-family: "黑体", SimHei, STHeiti, Arial, sans-serif;
+      line-height: 78px;
+    }
+  }
+}

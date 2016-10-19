@@ -1,0 +1,63 @@
+.group-point {
+  position: relative;
+  span {
+    position: absolute;
+    top: 6px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    overflow: hidden;
+  }
+}
+
+.map-info {
+  background-color: white;
+  border: 1px solid $border-color-grey;
+  position: relative;
+  &:before {
+    content: '';
+    background: url('/images/map-info-arrow.png') no-repeat top left;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    height: 23px;
+  }
+  .info-header {
+    line-height: 31px;
+    border-bottom: 1px solid $border-color-grey;
+    a {
+      padding-right: 30px;
+      padding-left: 10px;
+      color: #008ed0;
+      text-decoration: underline;
+      font-weight: bold;
+      @include text-overflow;
+    }
+    .close-action {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      color: #777;
+      font-size: 16px;
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+  .info-body {
+    padding: 10px;
+    .category, .address {
+      margin-bottom: 5px;
+      line-height: 22px;
+      > img {
+        float: left;
+        margin-top: 3px;
+      }
+      p {
+        margin: 0 0 0 22px;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+
+//
+// Icon Font: <%= font_name %>
+//
+
+<%= font_face(url: "font-url", path: @font_path_alt) %>
+
+[class*="fi-"]:before{
+<%= glyph_properties %>
+}
+
+<%= glyphs %>

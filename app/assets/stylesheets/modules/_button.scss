@@ -1,0 +1,86 @@
+// @include generate-test-for;
+// @include generate-text-each;
+
+// btn　base class
+.btn{
+  border-radius: 0;
+  font-size: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+  &.btn-sm {
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 18px;
+  }
+}
+
+/*
+ * 实色按钮
+ * 使用 .btn .btn-xxxxx
+ */
+/* .btn-default{
+	@include generate-btn($white,$green);
+} */
+
+.btn-red{
+	@include generate-btn($white,$red);
+}
+
+.btn-grey{
+	@include generate-btn($white,$grey-darken);
+}
+
+.btn-green{
+	@include generate-btn($white,$green);
+}
+
+
+
+/*
+ * 线框按钮
+ * 使用 .btn .btn-line-xxxx
+ */
+.btn-line{
+  border: 1px solid $grey;
+  background-color: $grey-lighten;
+  color: #566c7b;
+  &:active {
+    @include box-shadow(none !important);
+    color: #566c7b;
+  }
+}
+
+.btn-line-default{
+  @extend .btn-line;
+  @include btn-hover($green, $grey-lighten, $green);
+}
+
+.btn-line-primary{
+  @extend .btn-line;
+  @include btn-hover(white, $green);
+}
+
+.btn-line-danger{
+  @extend .btn-line;
+  @include btn-hover($red, $red-light, $red);
+}
+
+.btn-line-info {
+  @extend .btn-line;
+  @include btn-hover(#566c7b, $grey-light, $grey);
+}
+
+//冻结　解冻
+.frozen,.unfrozen{
+  display: inline-block;
+  width: 42px;
+  height: 20px;
+  position: relative;
+  top: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  background: image-url('btn-froze.png') no-repeat;
+}
+.unfrozen{
+  background: image-url('btn-unfroze.png') no-repeat;
+}

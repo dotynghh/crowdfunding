@@ -1,0 +1,15 @@
+.search-wrapper{
+  padding: 35px 15px 25px;
+  background: #d8e2ec;
+  border: 1px solid $border-color-grey;
+  @media (max-width: 1366px){
+    .form-group{
+      margin-right: 10px;
+    }
+  }
+
+  .btn-line-info:hover {
+    background-color: darken($grey-light, 10%);
+    border-color: darken($grey-light, 10%);
+  }
+}

@@ -1,0 +1,44 @@
+.info-tile {
+  @include clearfix;
+  background-color: white;
+  border: 1px solid $border-color-grey;
+  margin-bottom: 5px;
+
+  .info-icon, .info-content, .info-amount {
+    float: left;
+    padding: 15px;
+  }
+
+  .info-icon {
+    width: 24%;
+    font-size: 38px;
+    text-align: right;
+
+  }
+
+  .info-content {
+    width: 50%;
+    color: $grey-dark;
+    h3 {
+      font-size: 16px;
+      margin-top: 15px;
+    }
+  }
+
+  .info-amount {
+    width: 26%;
+    font-size: 60px;
+    line-height: 76px;
+  }
+
+  &.warning {
+    .info-icon, .info-amount {
+      color: $orange-light;
+    }
+  }
+  &.info {
+    .info-icon, .info-amount {
+      color: #46c1fa;
+    }
+  }
+}

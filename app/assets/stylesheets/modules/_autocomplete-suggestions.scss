@@ -1,0 +1,24 @@
+.box-picker {
+  visibility: hidden;
+  position: absolute;
+}
+.box-picker-container {
+  position: relative;
+}
+.autocomplete-suggestions {
+  background-color: white;
+  border: 1px solid $border-color-grey;
+
+  .autocomplete-suggestion {
+    padding: 3px 10px;
+
+    &.autocomplete-selected {
+      background-color: $selected-bg;
+    }
+  }
+
+  .autocomplete-no-suggestion {
+    padding: 3px 10px;
+    color: $danger-color;
+  }
+}
