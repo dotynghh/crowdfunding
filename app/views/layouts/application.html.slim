@@ -13,7 +13,7 @@ html
           .navbar-header.nav-color
             button.navbar-toggle.toggle-btn id="nav_collapse" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-controls="bs-navbar-collapse-1"
               span.fa.fa-bars.fa-lg"span
-            a.navbar-brand.custom-logo-link href="" Crowding
+            a.navbar-brand.custom-logo-link href="/" Crowding
           .collapse.navbar-collapse.nav-submenu-color.collapse id="bs-navbar-collapse-1"
             ul.nav.navbar-nav.navbar-right.custom
               li
@@ -22,7 +22,7 @@ html
                 li
                   = link_to "编辑", edit_user_registration_path
                 li
-                  = link_to "#{current_user.email}, 退出", destroy_user_session_path, method: 'delete'
+                  = link_to "#{current_user.username}, 退出", destroy_user_session_path, method: 'delete'
               - else
                 li= link_to '登录', new_user_session_path
                 li= link_to '注册', new_user_registration_path
