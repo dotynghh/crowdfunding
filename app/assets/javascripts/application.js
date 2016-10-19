@@ -10,12 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require underscore-min
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require jquery.slimscroll
 
 //= require AdminLTE
+//= require jquery_nested_form
 
 //= require lib/util
 //= require lib/Page
@@ -23,7 +26,6 @@
 
 //= require_self
 
-//= require jquery
-//= require bootstrap-sprockets
+
 
 
