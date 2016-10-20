@@ -7,7 +7,7 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
   body
-    header name="top"
+    header name="top" style="margin: 70px;"
       nav.navbar.navbar-default.navbar-fixed-top.nav-color role="navigation" id="nav"
         .container
           .navbar-header.nav-color
@@ -15,7 +15,7 @@ html
               span.fa.fa-bars.fa-lg"span
             a.navbar-brand.custom-logo-link href="/" Crowding
             ul.nav.navbar-nav.navbar-left.custom
-              li= link_to '发起众筹',root_path ,id: "project"
+              li= link_to '发起众筹', new_project_path,id: "project"
               li= link_to '众筹分类'
               li= link_to "互动交流"
               li= link_to "众筹生态"

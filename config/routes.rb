@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   	resources :users
   	resources :projects
   end
+  resources :projects
 end
