@@ -25,7 +25,7 @@ html
                 li
                   = link_to "个人中心", edit_user_registration_path
                 li
-                  = link_to "#{current_user.email}, 退出", destroy_user_session_path, method: 'delete'
+                  = link_to "#{current_user.username}, 退出", destroy_user_session_path, method: 'delete'
               - else
                 li= link_to '登录', new_user_session_path
                 li= link_to '注册', new_user_registration_path
