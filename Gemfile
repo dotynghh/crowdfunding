@@ -5,8 +5,7 @@ gem 'compass-rails'
 gem 'chosen-rails'
 gem 'enumerize'
 gem "breadcrumbs_on_rails"
-gem 'carrierwave'
-gem "mini_magick"
+
 gem 'jquery-datetimepicker-rails'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'devise'

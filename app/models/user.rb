@@ -25,8 +25,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable,
     :validatable, :authentication_keys => [:username]
-
-protected  
+  
+  protected  
   
   def email_required?  
     false  

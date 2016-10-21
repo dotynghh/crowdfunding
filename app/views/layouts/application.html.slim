@@ -23,7 +23,7 @@ html
             ul.nav.navbar-nav.navbar-right.custom
               - if user_signed_in?
                 li
-                  = link_to "个人中心", edit_user_registration_path
+                  = link_to "个人中心", user_management_user_path(current_user)
                 li
                   = link_to "#{current_user.username}, 退出", destroy_user_session_path, method: 'delete'
               - else
