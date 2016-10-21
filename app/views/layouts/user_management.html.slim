@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title 我的Crowduning
+    meta content='webkit' name='renderer'
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport'
+    /管理后台大多为表单页面,不需要turbolinks的cache
+    meta name="turbolinks-cache-control" content="no-cache"
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    /[if lt IE 9]
+      = javascript_include_tag '/vendor/html5shiv.min.js'
+      = javascript_include_tag '/vendor/respond.min.js'
+      = javascript_include_tag '/vendor/ie-polyfill.js'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body.sidebar-mini.skin-custom.fixed data={:action => action_name, :resource => controller_name, page: controller_name + '_' + action_name}
+    .wrapper
+      = render 'layouts/user_management_header'
+      = render 'layouts/user_management_sidebar'
+      .content-wrapper
+        -if flash[:notice] || alert
+          section.content-header
+            .alert.alert-info
+              = flash[:notice]
+              = alert
+        .content
+          = yield

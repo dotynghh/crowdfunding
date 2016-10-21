@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   	resources :users
   	resources :projects
   end
+  namespace :user_management do 
+    resources :users
+  end
 end
