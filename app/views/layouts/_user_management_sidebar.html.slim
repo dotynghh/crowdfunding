@@ -13,13 +13,13 @@ aside.main-sidebar
               i.fa.fa-circle-o
               span 个人信息
           li
-            a href="#"
+            = link_to edit_user_registration_path(current_user) do
               i.fa.fa-circle-o
-              span 收货地址
+              span 修改密码
       li.treeview
         a href = '#'
           i.fa.fa-th
-          span 订单中心
+          span 项目中心
           span.pull-right-container
             i.fa.fa-angle-left.pull-right
         ul.treeview-menu.menu-open style="display:none;"

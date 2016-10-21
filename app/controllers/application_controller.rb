@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :avatar_file_name, :avatar_file_size, :avatar_content_type])
   end
 
 end

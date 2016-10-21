@@ -21,7 +21,7 @@ class UserManagement::UsersController < UserManagement::BasesController
 
   private
   def attr_update
-    params.require(:user).permit(:password, :avatar)
+    params.require(:user).permit!
   end
 
 end
