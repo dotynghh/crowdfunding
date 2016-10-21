@@ -7,31 +7,36 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
   body
-    header name="top"
+    header name="top" style="margin: 70px;"
       nav.navbar.navbar-default.navbar-fixed-top.nav-color role="navigation" id="nav"
         .container
           .navbar-header.nav-color
             button.navbar-toggle.toggle-btn id="nav_collapse" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-controls="bs-navbar-collapse-1"
               span.fa.fa-bars.fa-lg"span
             a.navbar-brand.custom-logo-link href="/" Crowding
+            ul.nav.navbar-nav.navbar-left.custom
+              li= link_to '发起众筹', new_project_path,id: "project"
+              li= link_to '众筹分类'
+              li= link_to "互动交流"
+              li= link_to "众筹生态"
           .collapse.navbar-collapse.nav-submenu-color.collapse id="bs-navbar-collapse-1"
             ul.nav.navbar-nav.navbar-right.custom
-              li
-                a href="" Home
               - if user_signed_in?
                 li
-                  = link_to "我的Crowding", user_management_user_path(current_user)
+                  = link_to "个人中心", user_management_user_path(current_user)
                 li
                   = link_to "#{current_user.username}, 退出", destroy_user_session_path, method: 'delete'
               - else
                 li= link_to '登录', new_user_session_path
                 li= link_to '注册', new_user_registration_path
 
-    div.container.body-offset
+    .container.body-offset
       - if flash[:notice]
         .alert.alert-info= flash[:notice]
       = yield
-    div
+    .fixed-btn
+      a.go-top href="#top" title='返回顶部'
+        i.fa.fa-angle-left.pull-right
 
   = javascript_include_tag 'application'
   = yield :javascripts
