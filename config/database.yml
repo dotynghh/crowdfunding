@@ -5,10 +5,14 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
-  pool: 5
+  adapter: postgresql
+  encoding: unicode
+  pool: 60
   timeout: 5000
-
+  host: localhost
+  port: 5432
+  username: postgres
+  password: root
 development:
   <<: *default
   database: crowdfunding_development
