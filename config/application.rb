@@ -13,6 +13,7 @@ module Oop
     # -- all .rb files in that directory are automatically loaded.
         config.active_record.default_timezone = :local
     config.time_zone = 'Beijing'
-     config.i18n.default_locale = :'zh-CN'
+    config.i18n.default_locale = :'zh-CN'
+    config.assets.initialize_on_precompile = false
   end
 end
