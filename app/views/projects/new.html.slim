@@ -1,10 +1,19 @@
-= simple_form_for @project, url: projects_path, method: :post do |f|
-	= f.input :title
-	= f.input :goals
-	= f.input :category_id
-	= f.input :start_at
-	= f.input :end_at
-	= f.input :avatar, as: :file
-	= f.input :introduction, as: :text
-	= f.input :user_id
-	= f.submit
+.row
+	= simple_form_for @project, url: projects_path, row: 'form', method: :post do |f|
+		.form-group
+			= f.input :title
+		.form-group
+			= f.input :goals
+		.form-group
+			= f.input :category_id
+		.form-group
+			= f.input :start_at
+		.form-group
+			= f.input :end_at
+		.form-group
+			= f.input :avatar, as: :file
+		.form-group
+			= f.input :introduction, as: :text
+		.form-group
+			= f.input :user_id
+		= f.submit
