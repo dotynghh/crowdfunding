@@ -15,7 +15,7 @@ gem 'annotate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Activegem 'bootstrap-datepicker-rails' Record
-gem 'mysql2'
+gem 'pg', '~> 0.18'
 gem 'rails-i18n'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
