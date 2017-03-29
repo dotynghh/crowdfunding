@@ -1,52 +1,56 @@
 class ProjectsController < ApplicationController
-	def new
-		@project = Project.new
-	end
+  before_action :validate_search_key, only: [:search]
+  load_and_authorize_resource
 
-	def create
-		@project = Project.new(project_attr)
-		if @project.save
-			flash[:notice] = "项目发起成功，待审核"
-			redirect_to root_path
-		else
-			flash[:notice] = "项目发起失败，请检查"
-			render action: :new
-		end
-	end
+  def index
+    @projects =
+      if params[:category_id]
+        Project.where("category_id = ? AND aasm_state = ? OR aasm_state = ?", params[:category_id], "online", "offline").includes(:user)
+      else
+        Project.where("aasm_state = ? OR aasm_state = ?", "online", "offline").order("id DESC").includes(:user)
+      end
+    @categories = Category.all
+    set_page_title_and_description("热门项目", view_context.truncate(@projects.first.nil? ? "热门项目" : @projects.first.description, :length => 100))
+  end
 
-	def show
-		@project = Project.find params[:id]
-	end
+  def show
+    @project = Project.includes(:user).find(params[:id])
 
-	def edit
-		@project = Project.find params[:id]
-	end
+    set_page_title_and_description(@project.name, view_context.truncate(@project.description, :length => 100))
 
-	def update
-		@project = Project.find params[:id]
-		if @project.update_attributes(project_attr)
-			flash[:notice] = "更新成功"
-			redirect_to :back
-		else
-			flash[:notice] = "更新失败"
-			redirect_to :back
-		end
-	end
+    # if @project.online? || @project.offline?
+      @posts = @project.posts.recent
+      @plans = @project.plans.price
+    # else
+    #   redirect_to projects_path
+    # end
+  end
 
-	def delete
-		@project = Project.find params[:id]
-		if @project.destroy
-			flash[:notice] = "删除成功"
-			redirect_to :back
-		else
-			flash[:notice] = "删除失败"
-			redirect_to :back
-		end
-	end
+  def preview
+    @project = Project.includes(:user).find(params[:id])
+    # @user = @project.user
+    @posts = @project.posts.recent
+    @plans = @project.plans.price
+    flash[:warning] = "此页面为预览页面"
+    set_page_title_and_description(@project.name, view_context.truncate(@project.description, :length => 100))
+  end
 
-	private
+  def search
+    if @query_string.present?
+      search_result = Project.ransack(@search_criteria).result(distinct: true)
+      @projects_search = search_result.paginate(page: params[:page], per_page: 20)
+      set_page_title "搜索 #{@query_string}"
+    end
+  end
 
-	def project_attr
-		params.require(:project).permit!
-	end
+  protected
+
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+  def search_criteria(query_string)
+    { name_cont: query_string, aasm_state_in: %w(online offline)}
+  end
 end
