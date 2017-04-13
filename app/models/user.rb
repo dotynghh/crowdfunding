@@ -63,7 +63,7 @@ class User < ApplicationRecord
   has_many :projects
   has_one :account
   has_many :identiy_verifications
-
+  has_many :bill_payouts
   def generate_account
     Account.create!(user_id: id)
   end

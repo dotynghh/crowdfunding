@@ -61,21 +61,21 @@ Rails.application.configure do
   end
 
   config.action_mailer.default_url_options = { host: "localhost:3000" }
-  # config.action_mailer.default_url_options = { host: "192.168.22.9:3000" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+    address:              "smtp.163.com",
+    port:                 25,
+    user_name:            "dotyng_hh@163.com",
+    password:             "zhushi1220",
+    # openssl_verify_mode: 'none',
+    enable_starttls_auto: false  }
 
-  config.action_mailer.delivery_method = :letter_opener
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address:              ENV["EMAIL_ADDRESS"],
-  #   port:                 ENV["EMAIL_PORT"],
-  #   user_name:            ENV["EMAIL_USER_NAME"],
-  #   password:             ENV["EMAIL_PASSWORD"],
-  #   openssl_verify_mode: 'none',
-  #   enable_starttls_auto: false  }
-  #
-  # config.action_mailer.default_options = {
-  #   reply_to: "shaojunda@gmail.com"
-  # }
+  config.action_mailer.default_options = {
+    reply_to: "dotyng_hh@163.com"
+  }
 
   config.action_controller.asset_host = "localhost:3000"
 

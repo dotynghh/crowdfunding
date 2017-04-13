@@ -6,11 +6,7 @@ class NotificationService
   end
 
   def send_sms
-    @client = Twilio::REST::Client.new
-    @client.messages.create(
-      from: ENV["TWILIO_PHONE_NUMBER"],
-      to: "+86" + @to_phone_number.to_s,
-      body: "你的验证码是 #{@code}"
-    )
+    UserMailer.send_email(@code).deliver!
+    return true
   end
 end
