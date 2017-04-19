@@ -69,9 +69,10 @@ Rails.application.configure do
     address:              "smtp.163.com",
     port:                 25,
     user_name:            "dotyng_hh@163.com",
-    password:             "zhushi1220",
+    password:             "gs225911",
     # openssl_verify_mode: 'none',
-    enable_starttls_auto: false  }
+    :authentication       => "login",
+    enable_starttls_auto: true  }
 
   config.action_mailer.default_options = {
     reply_to: "dotyng_hh@163.com"

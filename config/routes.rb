@@ -67,6 +67,7 @@ Rails.application.routes.draw do
         post :verify_phone_number
         get :change_password
         post :verify_phone_number_new
+        get :addresses
       end
     end
     resources :projects do
@@ -94,7 +95,15 @@ Rails.application.routes.draw do
         post :show_orders_for_one_project
       end
     end
+
+    resources :addresses, only: [:index]
     resources :bills
+  end
+
+  resources :addresses do
+    member do
+      put :set_default_address
+    end
   end
 
   resources :plans do

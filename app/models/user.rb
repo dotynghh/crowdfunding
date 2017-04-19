@@ -24,6 +24,7 @@
 #  country_code           :string(255)      default("+86")
 #  weibo                  :string(255)
 #  description            :string(255)
+#  default_address_id     :integer
 #
 
 #  phone_number           :integer
@@ -64,6 +65,8 @@ class User < ApplicationRecord
   has_one :account
   has_many :identiy_verifications
   has_many :bill_payouts
+  has_many :addresses, -> { where(address_type: Address::AddressType::User).order("id desc") }
+  belongs_to :default_address, class_name: :Address
   def generate_account
     Account.create!(user_id: id)
   end

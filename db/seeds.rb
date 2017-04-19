@@ -15,12 +15,12 @@ puts "Admin account created."
 
 create_users = for i in 1..3 do
                  User.create([email: "user#{i}@gmail.com", password: "11111111", password_confirmation: "11111111", is_admin: "false", user_name: "user#{i}"])
+                 Address.create([user_id: i+1, address_type: "user", contact_name: "诸葛亮", cellphone: "13163445574", address: "河南省南阳市宛城区", zipcode: "473000"])
 end
 
 User.create([email: "user4@gmail.com", password: "11111111", password_confirmation: "11111111", is_admin: "false", user_name: "许昕"])
 
 puts "4 Users' accounts created."
-
 # 共5个用户，1个admin
 Category.create!([name: "video", chs_name: "影视"])
 Category.create!([name: "music", chs_name: "音乐"])
@@ -42,7 +42,7 @@ Plan.create!([title: "慷慨资助者", description: "赠送《一支笔的静�
 Plan.create!([title: "VIP资助者", description: "赠送限量版私人订制钢笔淡彩风景速写作品一幅。我将给支持者单独创作绘画一幅钢笔淡彩速写作品。", quantity: 1, price: 2999, project_id: 1, plan_goal: 20,
               plan_progress: 1, backer_quantity: 1, need_add:false])
 
-Order.create!([total_price: 2999, plan_id: 27, creator_name: "许昕", backer_name: "李项", price: 2999, quantity: 1, payment_method: "Alipay", aasm_state: "paid", user_id: 5, project_id: 1, plan_description: "赠送《一支笔的静心之旅：钢笔淡彩风景速写》图书及一套明信片。", project_name: "用钢笔送你一个淡彩梦！"])
+Order.create!([total_price: 2999, plan_id: 27, creator_name: "许昕", backer_name: "李项", price: 2999, quantity: 1, payment_method: "Alipay", aasm_state: "paid", user_id: 5, project_id: 1, plan_description: "赠送《一支笔的静心之旅：钢笔淡彩风景速写》图书及一套明信片。", project_name: "用钢笔送你一个淡彩梦！", address: Address.find_by(user_id: 5).address_tos])
 BillPayment.create(
   order_id: 16, channel_id: 0,
   amount: 2999, user_id: 5, backer_name: "李项", project_id: 1, project_name: "用钢笔送你一个淡彩梦！",
@@ -68,7 +68,7 @@ Plan.create!([title: "慷慨资助者", description: "价值 125 元的《梵高
 Plan.create!([title: "VIP资助者", description: "价值 999 元专属定制版《梵高地图：追寻梵高一生的轨迹》图书一本（图书封面提现收藏者姓名）、价值 129 元梵高纪念版 AR （虚拟现实）眼镜一副、价值 99 元 梵高纪念版花球一盒（6个）、价值 128 元梵高纪念版糖果一盒（10支）以及价值 20000 元青年画家陆宏斌画作一副。", quantity: 1, price: 10_000, project_id: 2, plan_goal: 9,
               plan_progress: 0, backer_quantity: 0, need_add:false])
 
-Order.create!([total_price: 5000, plan_id: 5, creator_name: "梦见斌", backer_name: "李想", price: 5000, quantity: 1, payment_method: "Alipay", aasm_state: "paid", user_id: 2, project_id: 2, plan_description: "价值 125 元的《梵高地图：追寻梵高一生的轨迹》图书一本、价值 99 元梵高纪念版花球一盒（6个）、价值 128 元梵高纪念版糖果一盒（10支）", project_name: "梵高地图 虚拟现实艺术大展"])
+Order.create!([total_price: 5000, plan_id: 5, creator_name: "梦见斌", backer_name: "李想", price: 5000, quantity: 1, payment_method: "Alipay", aasm_state: "paid", user_id: 2, project_id: 2, plan_description: "价值 125 元的《梵高地图：追寻梵高一生的轨迹》图书一本、价值 99 元梵高纪念版花球一盒（6个）、价值 128 元梵高纪念版糖果一盒（10支）", project_name: "梵高地图 虚拟现实艺术大展", address: Address.find_by(user_id: 2).address_tos])
 BillPayment.create(
   order_id: 2, channel_id: 0,
   amount: 5000, user_id: 2, backer_name: "李想", project_id: 2, project_name: "梵高地图 虚拟现实艺术大展",
@@ -92,7 +92,7 @@ Plan.create!([title: "慷慨资助者", description: "价值 299 元精装珍藏
 Plan.create!([title: "VIP资助者", description: "价值 299 元精装珍藏版《心灵的远方》影集一本；《心灵的远方》摄影明信片一套（每套 8 张）。《心灵的远方》摄影台历一本；《心灵的远方》系列 32 开硬面笔记本。《心灵的远方》摄影艺术限量版原作一副；", quantity: 1, price: 1500, project_id: 3, plan_goal: 2,
               plan_progress: 0, backer_quantity: 0, need_add:false])
 
-Order.create!([total_price: 500, plan_id: 7, creator_name: "吴涛", backer_name: "纪梵希", price: 500, quantity: 1, payment_method: "Alipay", aasm_state: "paid", user_id: 2, project_id: 2, plan_description: "价值 125 元的《梵高地图：追寻梵高一生的轨迹》图书一本、价值 99 元梵高纪念版花球一盒（6个）、价值 128 元梵高纪念版糖果一盒（10支）", project_name: "梵高地图 虚拟现实艺术大展"])
+Order.create!([total_price: 500, plan_id: 7, creator_name: "吴涛", backer_name: "纪梵希", price: 500, quantity: 1, payment_method: "Alipay", aasm_state: "paid", user_id: 2, project_id: 2, plan_description: "价值 125 元的《梵高地图：追寻梵高一生的轨迹》图书一本、价值 99 元梵高纪念版花球一盒（6个）、价值 128 元梵高纪念版糖果一盒（10支）", project_name: "梵高地图 虚拟现实艺术大展", address: Address.find_by(user_id: 2).address_tos])
 BillPayment.create(
   order_id: 3, channel_id: 0,
   amount: 5000, user_id: 3, backer_name: "纪梵希", project_id: 3, project_name: "《心灵的远方》摄影集众筹",

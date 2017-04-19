@@ -37,18 +37,7 @@
               <%= link_to("手机已验证", "javascript:void(0)", :class => "btn btn-sm btn-success disabled") %>
             <% end %>
 
-
-            <%# if @user.aasm_state == "user_registered" %>
-            <%#= link_to("申请实名认证", apply_for_certify_account_user_path(@user), :method => :post, :class => "btn btn-sm btn-info") %>
-            <%# elsif @user.aasm_state == "request_verify" %>
-            <%#= content_tag(:span, "实名认证审核中，请耐心等待...", class: "label label-success") %>
-            <%# elsif @user.aasm_state == "passed_verified" %>
-            <%#= link_to("已实名认证", "#", :class => "btn btn-sm btn-success disabled") %>
-            <%# else %>
-            <%#= link_to("再次申请实名认证", apply_for_certify_account_user_path(@user), :method => :post, :class => "btn btn-sm btn-info") %>
-            <%# end %>
-
-
+            <%= link_to "管理收获地址", addresses_account_user_path(@user), :class => "btn btn-sm btn-default" %>
           </div>
         </div>
       </div>

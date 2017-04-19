@@ -38,6 +38,9 @@ class Account::UsersController < ApplicationController
     end
   end
 
+  def addresses
+  end
+
   def apply_for_certify
     @user = User.find(params[:id])
     @user.apply_for_certify!
@@ -64,7 +67,7 @@ class Account::UsersController < ApplicationController
       VerificationCode.where(phone_number: phone_number, code_status: true).update_all(code_status: false)
     end
     VerificationCode.create(phone_number: phone_number, verification_code: code)
-    options = { phone_number: phone_number, code: code }
+    options = { phone_number: phone_number, code: code, email: current_user.email}
     NotificationService.new(options).send_sms
     @message = { status: "y" }
     render json: @message

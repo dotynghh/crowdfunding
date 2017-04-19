@@ -13,10 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap/alert
-//= require bootstrap/dropdown
-//= require bootstrap/collapse
-//= require bootstrap/tab
+// = require bootstrap/alert
+// = require bootstrap/dropdown
+// = require bootstrap/collapse
+// = require bootstrap/tab
 //= require trix
 // require tinymce
+//= require bootstrap-sprockets
 // require_tree .
+//= require home
+  

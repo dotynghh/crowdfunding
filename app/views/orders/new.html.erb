@@ -13,6 +13,21 @@
       <%#= f.submit "提交", class: "btn btn-primary", data: {disable_with: "Submitting.."} %>
     </div>
   </div>
+  <div class="row">
+    <div class="container">
+      <div id="address_list">
+      </div>
+    </div>
+  </div>
+
+  <%= content_for :javascripts do %>
+    <script>
+      $.get('/addresses', function(data) {
+        $('#address_list').html(data);
+      })
+    </script>
+  <% end %>
+
   <h1>支持回报详情</h1>
   <table class="table table-bordered table-hover">
     <thead>

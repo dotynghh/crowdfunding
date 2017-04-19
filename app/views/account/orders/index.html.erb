@@ -11,7 +11,7 @@
   </div>
 <% end %>
 <input type="hidden" id="ordersSize" value="<%= @orders.size %>" >
-<% content_for :orders_javascript do %>
+<% content_for :javascripts do %>
   <script>
     var tmp = 1
       $(function() {
