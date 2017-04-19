@@ -26,7 +26,7 @@ class AddressesController < ApplicationController
     #     data: render_to_string(file: 'addresses/new')
     #   }
     end
-    redirect_to addresses_account_user_path(current_user)
+    redirect_to :back
   end
 
   def edit

@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
       @order.save
       if FundingService.new(@order, current_user, payment_method).add_progress!
         flash[:notice] = "您已成功付款，感谢您的支持！"
-        OrderMailer.notify_order_placed(@order).deliver!
+        res = OrderMailer.notify_order_placed(@order).deliver!
       else
         flash[:alert] = "付款失败，请重新尝试。"
       end
@@ -74,6 +74,7 @@ class OrdersController < ApplicationController
     @order.backer_name = current_user.user_name.blank? ? current_user.email : current_user.user_name
     @order.user = current_user
     @order.project = @project
+    @order.address = Address.find_by(id: params[:address_id]).address_tos
   end
 
   private

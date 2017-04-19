@@ -15,6 +15,7 @@ class Admin::OrdersController < AdminController
   end
 
   def create
+    binding.pry
     @order = Order.new(order_params)
     @order.creator_name = current_user.user_name
     @order.user = current_user
