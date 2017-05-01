@@ -37,9 +37,6 @@ class OrdersController < ApplicationController
       return
     end
     if @order.save
-      @order.plan_description = @plan.description
-      @order.project_name = @project.name
-      @order.save
       if FundingService.new(@order, current_user, payment_method).add_progress!
         flash[:notice] = "您已成功付款，感谢您的支持！"
         res = OrderMailer.notify_order_placed(@order).deliver!
@@ -74,7 +71,9 @@ class OrdersController < ApplicationController
     @order.backer_name = current_user.user_name.blank? ? current_user.email : current_user.user_name
     @order.user = current_user
     @order.project = @project
-    @order.address = Address.find_by(id: params[:address_id]).address_tos
+    @order.address = Address.getAddress(params[:address_id]) if params[:address_id]
+    @order.plan_description = @plan.description
+    @order.project_name = @project.name
   end
 
   private

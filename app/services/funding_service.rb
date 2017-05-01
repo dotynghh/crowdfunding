@@ -38,7 +38,7 @@ class FundingService
 
   def add_progress!
     add!
-    send_notification!
+    # send_notification!
   end
 
   def send_notification!
