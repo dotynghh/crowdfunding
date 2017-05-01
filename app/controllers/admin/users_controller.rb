@@ -2,7 +2,7 @@ class Admin::UsersController < AdminController
   before_action :find_user_by_id, only:[:edit,:update,:destroy,:promote,:demote]
 
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
     set_page_title_and_description("用户管理", nil)
   end
 

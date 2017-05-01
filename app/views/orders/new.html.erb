@@ -1,5 +1,5 @@
 <%= simple_form_for [:plan, @order] do |f|%>
-  <div class="order-new-body">
+  <div class="order-new-body" style="height: 600px;">
     <div class="detail">
       <div class="row">
         <div class="container">
@@ -28,7 +28,7 @@
         </tbody>
       </table>
     </div>
-    <div>
+    <div style="float: right; margin-right: 50px;">
       <h4>
         总计：¥ <%= @plan.price %>
         <%= f.submit "支付宝支付", class: "btn btn-info", data: {disable_with: "提交中.."} %>

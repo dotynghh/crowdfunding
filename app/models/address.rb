@@ -21,6 +21,11 @@ class Address < ApplicationRecord
     "地址：" + address + " 姓名：" + contact_name + " 手机号：" + cellphone + " 邮编:" + zipcode
   end
 
+  def self.getAddress address_id
+    address = self.find_by(id: address_id)
+    address.address_tos
+  end
+
   private
   def set_as_default_address
     if self.set_as_default.to_i == 1
