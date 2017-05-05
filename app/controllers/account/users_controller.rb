@@ -184,7 +184,7 @@ class Account::UsersController < ApplicationController
       @info[:message] = "请输入验证码"
       return
     end
-    @verification_code = VerificationCode.select("verification_code").where(phone_number: phone_number, code_status: true).take
+    @verification_code = VerificationCode.select("verification_code").where(phone_number: phone_number, code_status: false).take
     if @verification_code.blank?
       @info[:status] = "n"
       @info[:message] = "验证码错误"
