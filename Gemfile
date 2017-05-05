@@ -1,6 +1,6 @@
 # source 'https://rubygems.org'
 source "https://gems.ruby-china.org"
-
+ruby '2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 5.0.0"
 # Use sqlite3 as the database for Active Record
@@ -55,6 +55,8 @@ gem "ransack"
 gem 'seo_helper'
 gem "active_link_to"
 # gem "tinymce-rails"
+gem "pg"
+gem 'rails_12factor'
 
 
 group :development, :test do
@@ -65,14 +67,13 @@ group :development, :test do
   gem "pry-nav"
   # gem "rack-mini-profiler"
   gem "bullet"
-  gem 'annotate'
   #  如果 controller 报错，将 binding.pry 加入 controller 报错的那一行代码之前，然后在rails s的环境里可以实时调试
 end
 
-group :production do
-  # gem "pg"
-  gem 'rails_12factor'
-end
+# group :production do
+#   gem "pg"
+#   gem 'rails_12factor'
+# end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

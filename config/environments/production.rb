@@ -16,7 +16,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
+  config.public_file_server.enabled = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -85,30 +85,26 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   # Twilio configure
-  Twilio.configure do |config|
-    config.account_sid = ENV["TWILIO_SID"]
-    config.auth_token = ENV["TWILIO_TOKEN"]
-  end
+  # Twilio.configure do |config|
+  #   config.account_sid = ENV["TWILIO_SID"]
+  #   config.auth_token = ENV["TWILIO_TOKEN"]
+  # end
 
   # Default Mailer Host
-  Rails.application.routes.default_url_options[:host] = 'talent-rocket.herokuapp.com'
+  Rails.application.routes.default_url_options[:host] = 'gs_bysj.herokuapp.com'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              ENV["EMAIL_ADDRESS"],
-    port:                 ENV["EMAIL_PORT"],
-    user_name:            ENV["EMAIL_USER_NAME"],
-    password:             ENV["EMAIL_PASSWORD"],
-    openssl_verify_mode: 'none',
-    enable_starttls_auto: false  }
+    address:              "smtp.163.com",
+    port:                 25,
+    user_name:            "dotyng_hh@163.com",
+    password:             "gs225911",
+    authentication:        "login",
+    enable_starttls_auto: true  }
 
   config.action_mailer.default_options = {
-    reply_to: "shaojunda@gmail.com"
+    reply_to: "dotyng_hh@163.com"
   }
   # Twilio configure
-  Twilio.configure do |config|
-    config.account_sid = ENV["TWILIO_SID"]
-    config.auth_token = ENV["TWILIO_TOKEN"]
-  end
 
-  config.action_controller.asset_host = "talent-rocket.herokuapp.com"
+  config.action_controller.asset_host = "gs_bysj.herokuapp.com"
 end
