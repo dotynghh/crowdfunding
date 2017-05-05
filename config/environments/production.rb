@@ -91,7 +91,6 @@ Rails.application.configure do
   # end
 
   # Default Mailer Host
-  Rails.application.routes.default_url_options[:host] = 'gs_bysj.herokuapp.com'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              "smtp.163.com",
@@ -106,5 +105,4 @@ Rails.application.configure do
   }
   # Twilio configure
 
-  config.action_controller.asset_host = "gs_bysj.herokuapp.com"
 end
