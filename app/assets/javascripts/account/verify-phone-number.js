@@ -1,10 +1,10 @@
 $(function() {
 
-  if($.cookie("total")!=undefined&&$.cookie("total")!='NaN'&&$.cookie("total")!='null'){//cookie存在倒计时
-    timekeeping();
-  }else{//cookie 没有倒计时
-    $('#send_verification_code').attr("disabled", false);
-  }
+  // if($.cookie("total")!=undefined&&$.cookie("total")!='NaN'&&$.cookie("total")!='null'){//cookie存在倒计时
+  //   timekeeping();
+  // }else{//cookie 没有倒计时
+  //   $('#send_verification_code').attr("disabled", false);
+  // }
 
   $("#send_verification_code").click(function() {
     phoneNumber = $.trim($("#user_phone_number").val())
