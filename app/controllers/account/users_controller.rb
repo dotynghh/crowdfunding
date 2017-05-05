@@ -66,7 +66,7 @@ class Account::UsersController < ApplicationController
     unless VerificationCode.where(phone_number: phone_number, code_status: true).empty?
       VerificationCode.where(phone_number: phone_number, code_status: true).update_all(code_status: false)
     end
-    VerificationCode.create(phone_number: phone_number, verification_code: code)
+    VerificationCode.create(phone_number: phone_number, verification_code: code, code_status: true)
     options = { phone_number: phone_number, code: code, email: current_user.email}
     NotificationService.new(options).send_sms
     @message = { status: "y" }
@@ -160,7 +160,7 @@ class Account::UsersController < ApplicationController
       render "show_verify_phone_number"
       return
     end
-    @verification_code = VerificationCode.select("verification_code").where(phone_number: phone_number, code_status: true).take
+    @verification_code = VerificationCode.where(phone_number: phone_number, verification_code: captcha).take
     if @verification_code.blank?
       flash[:alert] = "验证码错误"
       render "show_verify_phone_number"
@@ -184,7 +184,7 @@ class Account::UsersController < ApplicationController
       @info[:message] = "请输入验证码"
       return
     end
-    @verification_code = VerificationCode.select("verification_code").where(phone_number: phone_number, code_status: false).take
+    @verification_code = VerificationCode.where(phone_number: phone_number, verification_code: captcha).take
     if @verification_code.blank?
       @info[:status] = "n"
       @info[:message] = "验证码错误"
